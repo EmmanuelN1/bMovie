@@ -4,7 +4,7 @@ import "./Profile.css"
 import avatar2 from "../asset/Image/avatar2.png"
 import { selectUser } from '../features/userSlice'
 import { useSelector } from 'react-redux'
-import { auth } from './firebase'
+import { auth } from '../firebase'
 function Profile() {
 
     const user = useSelector(selectUser);

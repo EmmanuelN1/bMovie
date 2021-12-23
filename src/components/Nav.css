@@ -27,8 +27,7 @@
     cursor: pointer 
 }
 .nav__avatar{
-    cursor:pointer;
-    
+    cursor:pointer; 
     position:fixed;
     right: 40px;
     width:30px;
