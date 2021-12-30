@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "./Row.css";
 import axios from "axios"
+import YouTube from 'react-youtube';
+import movieTrailer from "movie-trailer"
 
 function Row({title,fetchUrl, isLargeRow = false }) {
         const [movies , setMovies] = useState([]);
-
+        const [trailerUrl, setTrailerUrl] = useState("")
         const base_url = "https://image.tmdb.org/t/p/original/";
 
         //Anytime you are depending on a variable outside the useEff]fect please always place the variable ib the dependency box below
@@ -16,6 +18,28 @@ function Row({title,fetchUrl, isLargeRow = false }) {
             }
                 fetchData();
         },  [fetchUrl]);
+
+        const opts = {
+            height: "300",
+            width: "100%",
+        
+            playerVars : {
+                autoplay:1,
+            }
+        }
+
+        const openTrailer = (movie) => {
+            if(trailerUrl) {
+                setTrailerUrl('')
+            } else{
+                movieTrailer(movie?.name || "").then(url => {
+                    //extracting the value of V in the youtube url
+                    const urlParams = new URLSearchParams(new URL(url).search);
+                    setTrailerUrl(urlParams.get('v'));
+                }).catch(error => console.log(error))
+            }
+        }
+
     return (
         <div className="row">
             <h3>{title}</h3>
@@ -29,14 +53,17 @@ function Row({title,fetchUrl, isLargeRow = false }) {
                      className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
                     key={movie.id}
                     src={`${base_url}${ isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
-                    alt={movie.name}/>
+                    alt={movie.name}
+                    onClick={() => openTrailer(movie) }
+                    />
 
             
                 ))}    
                 </div>
+                {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/>}
             
         </div>
     )
 }
 
-export default Row
+export default Row;

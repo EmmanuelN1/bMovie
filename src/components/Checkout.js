@@ -8,7 +8,7 @@ const Checkout =  () => {
     return(
         <div className="checkout">
              <Nav/>
-             <div>
+             <div class>
                  
              </div>
         </div>

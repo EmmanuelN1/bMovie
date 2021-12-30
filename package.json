@@ -15,12 +15,14 @@
     "currency-formatter": "^1.5.9",
     "firebase": "^8.9.1",
     "moment": "^2.29.1",
+    "movie-trailer": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "react-youtube": "^7.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

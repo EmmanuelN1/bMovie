@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './SignInCom.css';
-import {auth} from "./firebase";
+import {auth} from "../firebase";
 
 function SignInCom() {
     const emailRef = useRef(null);
@@ -9,12 +9,13 @@ function SignInCom() {
     const signIn = (e) => {
         e.preventDefault();
 
-        //SignIn with email and password 
+        //SignIn with email and password `
         auth.signInWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
         ).then((data) => {
             console.log(data)
+                    
         }).catch(error => {
           alert(error.message);
         } )
