@@ -37,3 +37,7 @@
 .row__posterTitle{
     position:relative;
 }
+
+.row__titleHeader{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+}

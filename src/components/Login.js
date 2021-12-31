@@ -26,8 +26,9 @@ function Login ()  {
                     : 
                     (
                         <>
+                        <h6>For Portfolio Purpose Only</h6>
                         <h1>Infinite Movies, Talk shows and lots more</h1>
-                        <h2>Watch anywhere, Cancel Anytime</h2>
+                        <h3>Watch Infinite Movies Trailer, Anytime Anywhere</h3>
                         <h3>Ready to watch?? Enter your email to create or re-subscribe your membership
                         </h3>
 

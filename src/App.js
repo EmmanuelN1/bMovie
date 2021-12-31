@@ -11,6 +11,7 @@ import { auth } from './firebase';
 import  { useDispatch, useSelector} from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import Profile from './components/Profile';
+import Checkout from './components/Checkout';
 
 
 function App() {
@@ -52,6 +53,9 @@ useEffect(() => {
 
             <Route path="/profile">
               <Profile/>
+            </Route>
+            <Route path="/checkout">
+              <Checkout/>
             </Route>
             <Route exact path="/">
                 <Homescreen/>
