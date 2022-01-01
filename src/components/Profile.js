@@ -3,14 +3,53 @@ import Nav from './Nav'
 import "./Profile.css"
 import avatar2 from "../asset/Image/avatar2.png"
 import { selectUser } from '../features/userSlice'
-import { useSelector } from 'react-redux'
-import { auth } from '../firebase'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { auth } from '../firebase';
+import { addToBasket, selectSubscribe, onSubscribe, selectItems } from '../features/basketSlice'
+
 function Profile() {
 
     const user = useSelector(selectUser);
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const items = useSelector(selectItems);
+    const subscribe = useSelector(selectSubscribe); 
 
     const signout = () => {
          auth.signOut()
+    }
+
+    const addStandardToBasket = () => {
+        dispatch(addToBasket({
+            plan:"Standard",
+            price:20,
+        }))
+        dispatch(onSubscribe({
+            subscribe: true
+         }))
+        history.push('/checkout')
+    }
+
+    const addCommonToBasket = () => {
+        dispatch(addToBasket({
+            plan:"Common",
+        }));
+        dispatch(onSubscribe({
+            subscribe: true
+         }))
+        history.push('/')
+    }
+
+    const addPremiumToBasket = () => {
+        dispatch(addToBasket({
+            plan:"Premium",
+            price:40,
+        }));
+        dispatch(onSubscribe({
+           subscribe: true
+        }))
+        history.push('/checkout')
     }
      return (
         <div className="profile">
@@ -23,7 +62,7 @@ function Profile() {
                     <div className="profile__details">
                         <h2>{user?.email}</h2>
                         <div className="profile__plans">
-                            <h3>Plans (Current Plan: Premium)
+                            <h3>Current Plan: <span>{items[0]?.plan}</span> 
 
                             </h3>
                         <div className="profile__plans__details">
@@ -31,32 +70,35 @@ function Profile() {
 
                             <div className="profile__package">
                                 <h5>
-                                    Bookflix Standard <br/> <h6>1080p</h6>
+                                    Bookflix Common : Free <br/> <h6>580p</h6>
                                 </h5>
 
-                                <button className="subscribe">
-                                    Subscribe
+                               <button  onClick={addCommonToBasket} disabled={subscribe[1] ? true : false}
+                               className={subscribe[1] ? "alreadySubscribe" : "subscribe"}>
+                                   {subscribe[1] ? "Already Subscribed" : "Subscribe"}
                                 </button>
 
                             </div>
 
                             <div className="profile__package">
                                 <h5>
-                                    Bookflix Basic <br/> <h6>1080p</h6>
+                                    Bookflix Standard : $20/month <br/> <h6>780p</h6>
                                 </h5>
 
-                                <button className="subscribe">
-                                    Subscribe
+                                <button  onClick={addStandardToBasket} disabled={subscribe[1] ? true : false}
+                               className={subscribe[1] ? "alreadySubscribe" : "subscribe"}>
+                                   {subscribe[1] ? "Already Subscribed" : "Subscribe"}
                                 </button>
                             </div>
 
                             <div className="profile__package">
                                 <h5>
-                                    Bookflix Premium <br/> <h6>1080p</h6>
+                                    Bookflix Premium : $40/month <br/> <h6>1080p</h6>
                                 </h5>
 
-                                <button className="subscribe">
-                                    Subscribe
+                                <button  onClick={addPremiumToBasket} disabled={subscribe[1] ? true : false}
+                               className={subscribe[1] ? "alreadySubscribe" : "subscribe"}>
+                                   {subscribe[1] ? "Already Subscribed" : "Subscribe"}
                                 </button>
                             </div>
 
@@ -78,4 +120,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default Profile;

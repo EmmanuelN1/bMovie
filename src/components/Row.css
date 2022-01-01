@@ -6,7 +6,7 @@
 .row__posters{
     display:flex;
     overflow-y: hidden;
-    overflow-x:scroll;
+    overflow-x: scroll;
     padding:20px;
 }
 .row__posters::-webkit-scrollbar{
@@ -40,4 +40,6 @@
 
 .row__titleHeader{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    font-weight: bold;
+    margin-top: 15px;
 }

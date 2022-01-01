@@ -8,7 +8,7 @@
     font-weight:400;
     border-bottom: 1px solid #282c2d;
     margin-bottom:20px;
-    
+    margin-top:10px;
 }
 
 
@@ -82,8 +82,18 @@
     background-color: #e50914;
     border:none;
     border-radius:5px;
+    cursor:pointer;
 }
 
+.alreadySubscribe{
+    padding: 10px 14px;
+    font-size:0.8rem;
+    color:#000;
+    background-color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
 @media screen and ( max-width:550px ) {
     .profile__body{
         display:flex;

@@ -68,8 +68,7 @@ useEffect(() => {
         
       }
   </Router>
-
   ); 
 }
 
-export default App;
+export default App

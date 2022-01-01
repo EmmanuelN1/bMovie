@@ -1,0 +1,122 @@
+.checkout{
+    height:100vh;
+   
+}
+
+.checkout__body > h1 {
+    font-size:40px;
+    font-weight:400;
+    border-bottom: 1px solid #282c2d;
+    margin-bottom:20px;
+    margin-top:10px;
+    
+}
+
+
+.checkout__body{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    margin-left: auto;
+    margin-right:auto;
+    padding-top:8%;
+    max-width:800px;
+    height:100vh
+}
+
+.checkout__info{
+    display:flex;
+}
+
+.checkout__info > img {
+    height:100px;
+}
+
+.checkout__details{
+    margin-left:25px;
+    flex:1;
+}
+
+.checkout__details > h2{
+    background-color: grey;
+    padding:15px;
+    font-size:15px;
+    padding-left: 20px;
+}
+.checkout__signout{
+    padding: 10px 20px;
+    font-size:1rem;
+    color:white;
+    margin-top:5%;
+    width:100%;
+    background-color: #e50914;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.checkout__plans > h3 {
+    border-bottom: 1px solid #282c2d;
+    padding-bottom: 10px;
+}
+
+.checkout__plans {
+    margin-top: 20px;
+}
+.checkout__plans__details{
+    margin-top:10px;
+}
+
+.checkout__plans__details > h4{
+    margin-bottom:10px;
+}
+.checkout__package{
+    display:flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.subscribe{
+    padding: 10px 14px;
+    font-size:0.8rem;
+    color:#fff;
+    background-color: #e50914;
+    border:none;
+    border-radius:5px;
+}
+
+@media screen and ( max-width:550px ) {
+    .checkout__body{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:50px;
+        max-width:800px;
+    }
+
+    .checkout__info{
+        display:flex;
+        flex-direction:column;
+    }
+    .checkout__info > img {
+        width:85px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:10px;
+    }
+    .checkout__body > h1 {
+        text-align:center; 
+        font-size:30px;     
+    }
+    .checkout__signout{
+        font-size:0.8rem;
+    }
+    .checkout__details{
+        margin-left:10px;
+        margin-right:10px;
+    }
+   
+    
+}
