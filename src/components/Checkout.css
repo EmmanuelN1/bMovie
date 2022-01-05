@@ -1,7 +1,3 @@
-.checkout{
-    height:100vh;
-   
-}
 
 .checkout__body > h1 {
     font-size:40px;
@@ -10,6 +6,10 @@
     margin-bottom:20px;
     margin-top:10px;
     
+}
+.checkout{
+    height:100vh;
+   
 }
 
 
@@ -76,6 +76,11 @@
     margin: 10px 0px;
 }
 
+.checkout__payment{
+    display:flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
 .subscribe{
     padding: 10px 14px;
     font-size:0.8rem;
@@ -83,6 +88,10 @@
     background-color: #e50914;
     border:none;
     border-radius:5px;
+}
+
+.checkout__payment, .checkout__paymentTitle, .checkout__paymentDetails{
+    flex:0.8;
 }
 
 @media screen and ( max-width:550px ) {
@@ -120,3 +129,7 @@
    
     
 }
+
+/*
+    secret: sk_test_51I2EMNJ5mNSiwXzgTkdIA2EnPvu93dlrNRzYM7UPC5K4EKyjFqkLhZLBol9N0GIqyxLcd8MjnwZCOPAo4Xchay4a000StVVlUY
+*/

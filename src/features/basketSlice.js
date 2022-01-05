@@ -24,7 +24,7 @@ export const basketSlice = createSlice({
         // }
 
     }
-});
+}); 
 
 export const { addToBasket, onSubscribe } = basketSlice.actions
 

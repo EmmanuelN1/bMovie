@@ -6,7 +6,7 @@ import { selectUser } from '../features/userSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../firebase';
-import { addToBasket, selectSubscribe, onSubscribe, selectItems } from '../features/basketSlice'
+import { addToBasket, selectSubscribe, onSubscribe, selectItems } from '../features/basketSlice';
 
 function Profile() {
 
@@ -25,9 +25,7 @@ function Profile() {
             plan:"Standard",
             price:20,
         }))
-        dispatch(onSubscribe({
-            subscribe: true
-         }))
+        
         history.push('/checkout')
     }
 
@@ -46,14 +44,11 @@ function Profile() {
             plan:"Premium",
             price:40,
         }));
-        dispatch(onSubscribe({
-           subscribe: true
-        }))
         history.push('/checkout')
     }
      return (
         <div className="profile">
-            <Nav/>
+                <Nav/>
 
             <div className="profile__body">
                 <h1>My Profile</h1>

@@ -12,8 +12,10 @@ import  { useDispatch, useSelector} from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import Profile from './components/Profile';
 import Checkout from './components/Checkout';
+import {loadStripe} from "@stripe/stripe-js";
+import {Elements} from "@stripe/react-stripe-js"
 
-
+const promise =  loadStripe("pk_test_51I2EMNJ5mNSiwXzgkavnToWjMQQ9ds7CcFQC1JQsc8L1DLUWhEDINKOaEjFIgvHPtoquK6T0AzJ4TRHyfV2Xt3th00i0csrG3O");
 function App() {
 
   //pull out the 
@@ -55,11 +57,18 @@ useEffect(() => {
               <Profile/>
             </Route>
             <Route path="/checkout">
-              <Checkout/>
+              <Elements stripe={promise}>
+                  <Checkout/>
+              </Elements>   
             </Route>
             <Route exact path="/">
                 <Homescreen/>
             </Route>
+
+            <Route exact path="/order">
+                <Order/>
+            </Route>
+            
             <Route exact path="/login">
                 <Login/>
             </Route>

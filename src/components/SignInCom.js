@@ -42,7 +42,7 @@ function SignInCom() {
            {
                     (
                         <form>
-                                <h1>Sign(Up  || In)</h1>
+                                <h1>Have an account</h1>
                                 <input type="email" placeholder="Email"
                                 ref = {emailRef} />
 
@@ -52,7 +52,7 @@ function SignInCom() {
 
                                 <button  type="submit" onClick={signIn}> Sign In</button>
 
-                                <button type="submit" className="btn__signUp" onClick={register}> Sign Up</button>
+                                <button type="submit" className="btn__signUp" onClick={register}>Register</button>
 
                                 
 
