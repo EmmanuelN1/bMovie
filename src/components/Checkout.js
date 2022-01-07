@@ -3,7 +3,7 @@ import "./Checkout.css";
 import Nav from './Nav';
 import { useSelector } from 'react-redux';
 import { selectUser } from "../features/userSlice";
-import { selectItems, onSubscribe } from "../features/basketSlice";
+import { selectItems, onSubscribe, emptyBasket } from "../features/basketSlice";
 import { useDispatch } from 'react-redux'
 import {Link} from "react-router-dom";
 import {CardElement, useStripe, useElement, useElements} from "@stripe/react-stripe-js"
@@ -55,6 +55,10 @@ const Checkout =  () => {
 
             dispatch(onSubscribe({
                 subscribe: true
+             }))
+
+             dispatch(emptyBasket({
+                //  items: []
              }))
              history.replace('/order')
         })
